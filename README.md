@@ -1,8 +1,9 @@
 # NIQ project 
 made by Nick W, Quiahn B, Ivan L
 
-## Git Hub url
+## Git Hub url front and backend
 https://github.com/NIQ-Project/niq
+https://github.com/NIQ-Project/niq-backend
 
 # Pitch
 DO YOU WHAT YOU WANT BEFORE ITS TOO LATE!!!
@@ -47,3 +48,4 @@ Delete single resource (curl then web app)
 # final touches
 styling 
 trouble shooting 
+more styling
