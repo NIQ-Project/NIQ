@@ -5,7 +5,6 @@ import { Link, NavLink } from 'react-router-dom'
 
 const authenticatedOptions = (
   <Fragment>
-    <NavLink to='/lists/:id' className='nav-link'>Show Task On List</NavLink>
     <NavLink to='/lists' className='nav-link'>View Lists</NavLink>
     <NavLink to='/change-password' className='nav-link'>Change Password</NavLink>
     <NavLink to='/sign-out' className='nav-link'>Sign Out</NavLink>
@@ -28,7 +27,7 @@ const alwaysOptions = (
 const Header = ({ user }) => (
   <Navbar bg='danger' variant='dark' expand='md'>
     <Navbar.Brand>
-      <Link to='/' style={{ color: '#000000', textDecoration: 'underline-dotted', fontFamily: 'Times New Roman", Times, serif' }}>MONTHLY</Link>
+      <Link to='/' style={{ color: '#000000', textDecoration: 'underline-dotted', fontFamily: 'Times New Roman", Times, serif' }}>M O N T H L Y</Link>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls='basic-navbar-nav' />
     <Navbar.Collapse id='basic-navbar-nav'>

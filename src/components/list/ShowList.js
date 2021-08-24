@@ -11,35 +11,40 @@ class ShowList extends Component {
     }
   }
 
+  months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
   componentDidMount () {
     const { match, user, msgAlert } = this.props
 
     showList(match.params.id, user)
-      .then((res) => this.setState({ movie: res.data.list }))
+      .then((res) => this.setState({ list: res.data.list }))
       .then(() => msgAlert({
-        heading: 'show bucket list was a success',
-        message: 'check out your list',
+        heading: 'Show bucket list was a success',
+        message: 'Check out your list',
         variant: 'success'
       }))
       .catch(err => msgAlert({
-        heading: 'show list failed',
-        message: 'something went wrong',
+        heading: 'Show list failed',
+        message: 'Something went wrong',
         variant: 'danger'
       }))
   }
 
   render () {
     if (this.state.list === null) {
-      return 'loading...'
+      return 'Loading...'
     }
     return (
       <>
-        <h3>Show one bucket list page</h3>
-        <h5>{this.state.list.name}</h5>
-        <h6>hello</h6>
-        <p>Month:{this.month}</p>
-        <button onClick={this.destroy}>Delete This From Your List</button>
+        <div>
+          <h3>Show one bucket list page</h3>
+          <h5>{this.state.list.name}</h5>
+          <p>Month: {this.months[this.state.list.month]}</p>
+          {/* <ul>{listJsx}</ul> */}
+          <button onClick={this.destroy}>Delete This From Your List</button>
+        </div>
       </>
+
     )
   }
 }

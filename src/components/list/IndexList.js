@@ -18,7 +18,7 @@ class IndexList extends Component {
     indexList(user)
       .then((res) => {
         this.setState({
-          list: res.data.list
+          list: res.data.lists
         })
       })
       .then(() =>
@@ -32,35 +32,29 @@ class IndexList extends Component {
   }
 
   render () {
-    // const { list } = this.state
-    // this is what prevents the 'cannot read property map of undefined' or other similar errors
-    // because on the first render, `list` state will be `null
-    if (this.state.list === null) {
-      return 'loading...'
-    }
+    const { list } = this.state
+
     let listJsx
-    // if (this.state.list === 0) {
-    //   listJsx = 'No list, go create some'
-    // } else {
-    //   listJsx = this.state.list.map((list) => (
-    //     <li key={list._id}>
-    //       {list.name}
-    //     </li>
-    //   ))
-    // }
+    if (list.length === 0) {
+      listJsx = 'No list, go create some'
+    } else {
+      listJsx = this.state.list.map((list) => (
+        <li key={list._id}>
+          <Link to={`/lists/${list._id}`}>{list.name}</Link>
+        </li>
+      ))
+    }
 
     return (
       <div>
         <h3>List: </h3>
         <button>
-          <Link to={'/lists/create-list'}>Create List</Link>
+          <Link to={'/create-list'}>Create List</Link>
         </button>
         <ul>{listJsx}</ul>
       </div>
     )
   }
 }
-
-// - render - display the list in the state (optionally: loading message)
 
 export default IndexList

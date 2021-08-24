@@ -40,7 +40,7 @@ class CreateList extends Component {
     const { user, msgAlert, history } = this.props
 
     createList(this.state.list, user)
-      .then(res => history.push('/'))
+      .then(res => history.push('/lists/' + res.data.list._id))
       .then(() => msgAlert({
         heading: 'List created',
         message: 'nice work go check out your list',

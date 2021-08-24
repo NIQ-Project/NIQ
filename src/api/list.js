@@ -25,10 +25,20 @@ export const indexList = (user) => {
 }
 
 // show one list
-export const showList = (data, user) => {
+export const showList = (id, user) => {
   return axios({
-    url: apiUrl + '/lists/:id',
+    url: apiUrl + '/lists/' + id,
     method: 'get',
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
+
+export const deleteList = (id, user) => {
+  return axios({
+    url: apiUrl + '/movies/' + id,
+    method: 'delete',
     headers: {
       Authorization: `Bearer ${user.token}`
     }
