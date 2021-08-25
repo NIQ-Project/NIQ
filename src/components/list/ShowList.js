@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { showList, deleteList } from '../../api/list'
+import Button from 'react-bootstrap/Button'
 
 class ShowList extends Component {
   constructor (props) {
@@ -57,7 +58,7 @@ class ShowList extends Component {
       return 'Loading...'
     }
     const { owner } = this.state.list
-    const { user } = this.props
+    const { user, history, match } = this.props
     return (
       <>
         <div>
@@ -68,6 +69,9 @@ class ShowList extends Component {
           {user._id === owner && (
             <>
               <button onClick={this.destroy}>Delete This From Your List</button>
+              <Button onClick={() => history.push(`/lists/${match.params.id}/update-list`)}>
+              Edit
+              </Button>
             </>
           )}
         </div>

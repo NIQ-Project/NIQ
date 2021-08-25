@@ -55,8 +55,8 @@ class UpdateList extends Component {
 
    const { user, msgAlert, history, match } = this.props
 
-   updateList(this.state.movie, match.params.id, user)
-     .then((res) => history.push('/list/' + match.params.id))
+   updateList(this.state.list, match.params.id, user)
+     .then((res) => history.push('/lists/' + match.params.id))
      .then(() =>
        msgAlert({
          heading: 'List Updated!',

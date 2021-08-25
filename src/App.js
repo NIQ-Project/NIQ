@@ -13,6 +13,7 @@ import ChangePassword from './components/auth/ChangePassword'
 import CreateList from './components/list/CreateList'
 import IndexList from './components/list/IndexList'
 import ShowList from './components/list/ShowList'
+import UpdateList from './components/list/UpdateList'
 
 class App extends Component {
   constructor (props) {
@@ -92,25 +93,25 @@ class App extends Component {
           <AuthenticatedRoute
             user={user}
             path='/create-list'
-            render={() => (
-              <CreateList msgAlert={this.msgAlert} user={user} />
-            )}
+            render={() => <CreateList msgAlert={this.msgAlert} user={user} />}
+          />
+          <AuthenticatedRoute
+            user={user}
+            exact
+            path='/lists/:id/update-list'
+            render={() => <UpdateList msgAlert={this.msgAlert} user={user} />}
           />
           <AuthenticatedRoute
             user={user}
             exact
             path='/lists'
-            render={() => (
-              <IndexList msgAlert={this.msgAlert} user={user} />
-            )}
+            render={() => <IndexList msgAlert={this.msgAlert} user={user} />}
           />
 
           <AuthenticatedRoute
             user={user}
             path='/lists/:id'
-            render={() => (
-              <ShowList msgAlert={this.msgAlert} user={user} />
-            )}
+            render={() => <ShowList msgAlert={this.msgAlert} user={user} />}
           />
         </main>
       </Fragment>
