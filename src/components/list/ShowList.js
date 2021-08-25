@@ -56,6 +56,8 @@ class ShowList extends Component {
     if (this.state.list === null) {
       return 'Loading...'
     }
+    const { owner } = this.state.list
+    const { user } = this.props
     return (
       <>
         <div>
@@ -63,10 +65,13 @@ class ShowList extends Component {
           <h5>{this.state.list.name}</h5>
           <p>Month: {this.months[this.state.list.month]}</p>
           {/* <ul>{listJsx}</ul> */}
-          <button onClick={this.destroy}>Delete This From Your List</button>
+          {user._id === owner && (
+            <>
+              <button onClick={this.destroy}>Delete This From Your List</button>
+            </>
+          )}
         </div>
       </>
-
     )
   }
 }

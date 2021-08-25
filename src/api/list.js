@@ -35,6 +35,7 @@ export const showList = (id, user) => {
   })
 }
 
+// delete a list
 export const deleteList = (id, user) => {
   return axios({
     url: apiUrl + '/lists/' + id,
@@ -42,5 +43,17 @@ export const deleteList = (id, user) => {
     headers: {
       Authorization: `Bearer ${user.token}`
     }
+  })
+}
+
+// edit/update list
+export const updateList = (listData, id, user) => {
+  return axios({
+    method: 'PATCH',
+    url: apiUrl + '/lists/' + id,
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    },
+    data: { list: listData }
   })
 }
