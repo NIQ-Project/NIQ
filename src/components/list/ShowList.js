@@ -59,19 +59,22 @@ class ShowList extends Component {
     }
     const { owner } = this.state.list
     const { user, history, match } = this.props
+    const { list } = this.state
+    const showTasks = list.tasks.map(task => <li key={task._id}> {task.item} </li>)
     return (
       <>
         <div>
-          <h3>Show one bucket list page</h3>
+          <h3>Your Bucket list</h3>
           <h5>{this.state.list.name}</h5>
           <p>Month: {this.months[this.state.list.month]}</p>
-          {/* <ul>{listJsx}</ul> */}
           {user._id === owner && (
             <>
-              <button onClick={this.destroy}>Delete This From Your List</button>
+              <Button onClick={this.destroy}>Delete This List</Button>{' '}
               <Button onClick={() => history.push(`/lists/${match.params.id}/update-list`)}>
               Edit
-              </Button>
+              </Button> {' '}
+              <Button onClick={() => history.push(`/lists/${match.params.id}/create-task`)}>Create Task</Button>
+              <ul>{showTasks}</ul>
             </>
           )}
         </div>

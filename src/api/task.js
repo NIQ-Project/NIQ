@@ -6,7 +6,7 @@ export const createTask = (id, data, user) => {
   return axios({
     url: apiUrl + '/tasks/' + id,
     method: 'post',
-    data: { list: data },
+    data: { task: data },
     headers: {
       Authorization: `Bearer ${user.token}`
     }

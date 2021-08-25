@@ -68,12 +68,13 @@ render () {
         <h5>{this.state.list.name}</h5>
         <p>Month: {this.months[this.state.task.month]}</p>
 
-        <button onClick={this.destroy}>Delete This Task From Your List</button>
+        <button onClick={this.destroy}>Delete This List</button>
         <Button
           onClick={() =>
             history.push(`/tasks/${match.params.id}/update-task`)}>
             Edit
         </Button>
+        
       </div>
     </>
   )

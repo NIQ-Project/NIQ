@@ -57,6 +57,13 @@ class CreateList extends Component {
 
   render () {
     const { list, dropdownMonth } = this.state
+
+    const date = new Date()
+    const filteredMonths = this.months.filter((month, i) => i >= date.getMonth())
+    const dropdownJSX = filteredMonths.map(month => (
+      <Dropdown.Item key={month} onClick={this.handleChange} name={this.months.indexOf(month)}>{month}</Dropdown.Item>
+    ))
+
     return (
       <div>
         <Form onSubmit={this.handleSubmit}>
@@ -76,18 +83,7 @@ class CreateList extends Component {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item onClick={this.handleChange} name='0'>January</Dropdown.Item>
-                <Dropdown.Item onClick={this.handleChange} name='1'>February</Dropdown.Item>
-                <Dropdown.Item onClick={this.handleChange} name='2'>March</Dropdown.Item>
-                <Dropdown.Item onClick={this.handleChange} name='3'>April</Dropdown.Item>
-                <Dropdown.Item onClick={this.handleChange} name='4'>May</Dropdown.Item>
-                <Dropdown.Item onClick={this.handleChange} name='5'>June</Dropdown.Item>
-                <Dropdown.Item onClick={this.handleChange} name='6'>July</Dropdown.Item>
-                <Dropdown.Item onClick={this.handleChange} name='7'>August</Dropdown.Item>
-                <Dropdown.Item onClick={this.handleChange} name='8'>September</Dropdown.Item>
-                <Dropdown.Item onClick={this.handleChange} name='9'>October</Dropdown.Item>
-                <Dropdown.Item onClick={this.handleChange} name='10'>November</Dropdown.Item>
-                <Dropdown.Item onClick={this.handleChange} name='11'>December</Dropdown.Item>
+                {dropdownJSX}
               </Dropdown.Menu>
             </Dropdown>
 
