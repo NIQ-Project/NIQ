@@ -68,7 +68,7 @@ class CreateList extends Component {
       <div>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group controlId='name'>
-            <Form.Label>List name</Form.Label>
+            <Form.Label>List name:</Form.Label>
             <Form.Control
               required
               name='name'

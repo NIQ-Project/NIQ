@@ -15,6 +15,7 @@ export const createTask = (id, data, user) => {
 
 // delete a task
 export const deleteTask = (id, user, taskId) => {
+  console.log('taskId is: ', taskId)
   return axios({
     url: apiUrl + '/tasks/' + id + '/' + taskId,
     method: 'delete',

@@ -53,7 +53,7 @@ class IndexList extends Component {
       <div>
         <h3> Your List:</h3>
         <button>
-          <Link to={'/create-list'}>Create List</Link>
+          <Link to={'/create-list'}>Create A List</Link>
         </button>
         <ul>{listJsx}</ul>
       </div>

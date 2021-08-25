@@ -74,7 +74,6 @@ render () {
             history.push(`/tasks/${match.params.id}/update-task`)}>
             Edit
         </Button>
-        
       </div>
     </>
   )
