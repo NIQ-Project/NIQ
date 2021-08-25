@@ -1,13 +1,14 @@
 /* eslint-disable node/handle-callback-err */
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-import { showList } from '../../api/list'
+import { showList, deleteList } from '../../api/list'
 
 class ShowList extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      list: null
+      list: null,
+      deleted: false
     }
   }
 
@@ -28,6 +29,27 @@ class ShowList extends Component {
         message: 'Something went wrong',
         variant: 'danger'
       }))
+  }
+
+  destroy = () => {
+    const { match, user, msgAlert, history } = this.props
+    deleteList(match.params.id, user)
+    // Redirect to the list of movies
+      .then(() => history.push('/lists'))
+      .then(() =>
+        msgAlert({
+          heading: 'Successfully Deleted',
+          message: 'Your list no longer exists',
+          variant: 'success'
+        })
+      )
+      .catch((err) =>
+        msgAlert({
+          heading: 'Failed to Delete List',
+          message: 'Something went wrong: ' + err.message,
+          variant: 'danger'
+        })
+      )
   }
 
   render () {

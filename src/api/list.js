@@ -37,7 +37,7 @@ export const showList = (id, user) => {
 
 export const deleteList = (id, user) => {
   return axios({
-    url: apiUrl + '/movies/' + id,
+    url: apiUrl + '/lists/' + id,
     method: 'delete',
     headers: {
       Authorization: `Bearer ${user.token}`
