@@ -31,14 +31,18 @@ class IndexList extends Component {
       .catch(console.error)
   }
 
+  // render
   render () {
     const { list } = this.state
+    const { user } = this.props
 
     let listJsx
     if (list.length === 0) {
       listJsx = 'No list, go create some'
     } else {
-      listJsx = this.state.list.map((list) => (
+      // filter through list and return lists where owner matches user id
+      const filteredList = list.filter(list => user._id === list.owner)
+      listJsx = filteredList.map(list => (
         <li key={list._id}>
           <Link to={`/lists/${list._id}`}>{list.name}</Link>
         </li>
