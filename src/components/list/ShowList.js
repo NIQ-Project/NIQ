@@ -1,10 +1,9 @@
 /* eslint-disable node/handle-callback-err */
 import React, { Component } from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { showList, deleteList } from '../../api/list'
-import { deleteTask } from '../../api/task'
 import Button from 'react-bootstrap/Button'
-import Card from 'react-bootstrap/Card'
+import ShowTask from '../task/ShowTask'
 // import Card from 'react-bootstrap/Card'
 
 class ShowList extends Component {
@@ -23,20 +22,11 @@ class ShowList extends Component {
 
     showList(match.params.id, user)
       .then((res) => this.setState({ list: res.data.list }))
-      .then(() => msgAlert({
-        heading: 'Show bucket list was a success',
-        message: 'Check out your list',
-        variant: 'success'
-      }))
       .catch(err => msgAlert({
         heading: 'Show list failed',
         message: 'Something went wrong',
         variant: 'danger'
       }))
-  }
-
-  complete = () => {
-
   }
 
   destroy = () => {
@@ -60,66 +50,26 @@ class ShowList extends Component {
       )
   }
 
-  deleteTask = (taskId) => {
-    const { match, user, msgAlert, history } = this.props
-    deleteTask(match.params.id, user, taskId)
-    // Redirect to the index of lists
-      .then(() => history.push('/'))
-      .then(() => history.push(match.url))
-      .then(() =>
-        msgAlert({
-          heading: 'Successfully Deleted Task',
-          message: 'Your task no longer exists',
-          variant: 'success'
-        })
-      )
-      .catch((err) =>
-        msgAlert({
-          heading: 'Failed to Delete Task',
-          message: 'Something went wrong: ' + err.message,
-          variant: 'danger'
-        })
-      )
-  }
-
   render () {
     if (this.state.list === null) {
       return 'Loading...'
     }
     const { owner } = this.state.list
-    const { user, history, match } = this.props
+    const { user, history, match, msgAlert } = this.props
     const { list } = this.state
     const showTasks = list.tasks.map(task => (
-      <Card key={task._id} style={{
-        width: '18rem',
-        height: '14rem'
-      }}>
-        <Card.Header>Your Task:</Card.Header>
-        <Card.Body>
-          <Card.Title>Get This Done:</Card.Title>
-          <Card.Text style={{ overflow: 'auto' }}> {task.item} </Card.Text>
-          <div style={{
-            position: 'relative',
-            bottom: '5px'
-          }}>
-            <Link to={{ pathname: `/lists/${match.params.id}/edit-task`, taskId: task._id }}>
-              <Button variant="secondary">Edit</Button>
-            </Link>
-            <Button onClick={() => this.deleteTask(task._id)} variant="danger">Delete</Button>
-            <Button variant="secondary" onClick={() => { task.done = !task.done }} >{task.done ? 'TRUE' : 'FALSE'}</Button>
-          </div>
-        </Card.Body>
-      </Card>
+      <ShowTask key={task._id} task={task} user={user} msgAlert={msgAlert} />
     ))
+
     return (
       <>
         <div>
-          <h3>Your Bucket list</h3>
+          <h3 className={}>Your Bucket list</h3>
           <h5>{this.state.list.name}</h5>
           <p>Month: {this.months[this.state.list.month]}</p>
           {user._id === owner && (
             <>
-              <Button onClick={this.destroy}>Delete This List</Button>{' '}
+              <Button onClick={this.destroy}>Delete This List</Button>
               <Button onClick={() => history.push(`/lists/${match.params.id}/update-list`)}>
               Edit
               </Button> {' '}

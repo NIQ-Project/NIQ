@@ -15,20 +15,13 @@ class IndexList extends Component {
 
   // - lifecycle method (right away when this component renders, make a request for all the list & put em in state)
   componentDidMount = () => {
-    const { user, msgAlert } = this.props
+    const { user } = this.props
     indexList(user)
       .then((res) => {
         this.setState({
           list: res.data.lists
         })
       })
-      .then(() =>
-        msgAlert({
-          heading: 'Index success',
-          message: 'Here\'s the List',
-          variant: 'success'
-        })
-      )
       .catch(console.error)
   }
 
