@@ -11,18 +11,18 @@ class UpdateTask extends Component {
     super(props)
     this.state = {
       task: {
-        item: ''
-
+        item: '',
+        done: false
       }
     }
   }
 
   componentDidMount () {
     // one of the automatic router props we get is the match object - that has data about the params in our front-end route url
-    const { match, user, msgAlert } = this.props
+    const { match, user, msgAlert, location } = this.props
 
-    showTask(match.params.id, user)
-      .then((res) => this.setState({ list: res.data.task }))
+    showTask(match.params.id, user, location.taskId)
+      .then((res) => this.setState({ task: res.data.task }))
       .then(() =>
         msgAlert({
           heading: 'Show Task success',
@@ -40,21 +40,17 @@ class UpdateTask extends Component {
   }
 
 handleChange = (event) => {
-// because `this.state.task` is an object with multiple keys, we have to do some fancy updating
-  const userInput = { [event.target.item]: event.target.value }
-  this.setState((currState) => {
-    // "Spread" out current movie state key/value pairs, then add the new one at the end
-    // this will override the old key/value pair in the state but leave the others untouched
-    return { task: { ...currState.task, ...userInput } }
-  })
+  const copiedTask = Object.assign(this.state.task)
+  copiedTask[event.target.name] = event.target.value
+  this.setState({ task: copiedTask })
 }
 
 handleSubmit = (event) => {
   event.preventDefault()
 
-  const { user, msgAlert, history, match } = this.props
+  const { user, msgAlert, history, match, location } = this.props
 
-  updateTask(this.state.task, match.params.id, user)
+  updateTask(this.state.task, match.params.id, user, location.taskId)
     .then((res) => history.push('/lists/' + match.params.id))
     .then(() =>
       msgAlert({
@@ -78,7 +74,7 @@ render () {
     <div>
       <Form onSubmit={this.handleSubmit}>
         <Form.Group controlId='name'>
-          <Form.Label>Task Name:</Form.Label>
+          <Form.Label>New Task Name:</Form.Label>
           <Form.Control
             required
             name='item'
@@ -87,7 +83,7 @@ render () {
             onChange={this.handleChange}
           />{task.item}
         </Form.Group>
-        <Button type='submit'>Update Bucket List</Button>
+        <Button type='submit'>Update Your Task</Button>
       </Form>
     </div>
   )

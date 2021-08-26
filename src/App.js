@@ -15,6 +15,7 @@ import IndexList from './components/list/IndexList'
 import ShowList from './components/list/ShowList'
 import UpdateList from './components/list/UpdateList'
 import CreateTask from './components/task/CreateTask'
+import UpdateTask from './components/task/UpdateTask'
 
 class App extends Component {
   constructor (props) {
@@ -118,6 +119,11 @@ class App extends Component {
             user={user}
             path='/lists/:id/create-task'
             render={() => <CreateTask msgAlert={this.msgAlert} user={user} />}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/lists/:id/edit-task'
+            render={() => <UpdateTask msgAlert={this.msgAlert} user={user} />}
           />
         </main>
       </Fragment>

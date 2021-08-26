@@ -1,6 +1,6 @@
 /* eslint-disable node/handle-callback-err */
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { showList, deleteList } from '../../api/list'
 import { deleteTask } from '../../api/task'
 import Button from 'react-bootstrap/Button'
@@ -35,10 +35,14 @@ class ShowList extends Component {
       }))
   }
 
+  complete = () => {
+
+  }
+
   destroy = () => {
     const { match, user, msgAlert, history } = this.props
     deleteList(match.params.id, user)
-    // Redirect to the list of movies
+    // Redirect to the list index
       .then(() => history.push('/lists'))
       .then(() =>
         msgAlert({
@@ -60,7 +64,8 @@ class ShowList extends Component {
     const { match, user, msgAlert, history } = this.props
     deleteTask(match.params.id, user, taskId)
     // Redirect to the index of lists
-      .then(() => history.push('/lists'))
+      .then(() => history.push('/'))
+      .then(() => history.push(match.url))
       .then(() =>
         msgAlert({
           heading: 'Successfully Deleted Task',
@@ -97,9 +102,11 @@ class ShowList extends Component {
             position: 'relative',
             bottom: '5px'
           }}>
-            <Button variant="secondary">Edit</Button>{' '}
-            <Button onClick={() => this.deleteTask(task._id)} variant="danger">Delete</Button>{' '}
-            <Button variant="secondary">Completed</Button>
+            <Link to={{ pathname: `/lists/${match.params.id}/edit-task`, taskId: task._id }}>
+              <Button variant="secondary">Edit</Button>
+            </Link>
+            <Button onClick={() => this.deleteTask(task._id)} variant="danger">Delete</Button>
+            <Button variant="secondary" onClick={() => { task.done = !task.done }} >{task.done ? 'TRUE' : 'FALSE'}</Button>
           </div>
         </Card.Body>
       </Card>

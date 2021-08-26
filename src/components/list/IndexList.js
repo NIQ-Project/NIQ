@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { indexList } from '../../api/list'
 import { Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 
 class IndexList extends Component {
   constructor (props) {
@@ -52,9 +53,9 @@ class IndexList extends Component {
     return (
       <div>
         <h3> Your List:</h3>
-        <button>
-          <Link to={'/create-list'}>Create A List</Link>
-        </button>
+        <Link to={'/create-list'}>
+          <Button>Create A List</Button>
+        </Link>
         <ul>{listJsx}</ul>
       </div>
     )
