@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/niq/static/css/main.0087385e.chunk.css",
+    "main.js": "/niq/static/js/main.d135731a.chunk.js",
+    "main.js.map": "/niq/static/js/main.d135731a.chunk.js.map",
+    "runtime-main.js": "/niq/static/js/runtime-main.22a9fbb5.js",
+    "runtime-main.js.map": "/niq/static/js/runtime-main.22a9fbb5.js.map",
+    "static/js/2.fb9967bd.chunk.js": "/niq/static/js/2.fb9967bd.chunk.js",
+    "static/js/2.fb9967bd.chunk.js.map": "/niq/static/js/2.fb9967bd.chunk.js.map",
+    "index.html": "/niq/index.html",
+    "static/css/main.0087385e.chunk.css.map": "/niq/static/css/main.0087385e.chunk.css.map",
+    "static/js/2.fb9967bd.chunk.js.LICENSE.txt": "/niq/static/js/2.fb9967bd.chunk.js.LICENSE.txt",
+    "static/media/BigLogoM.4d0ec502.png": "/niq/static/media/BigLogoM.4d0ec502.png",
+    "static/media/NavBarLogo.6cbb026d.png": "/niq/static/media/NavBarLogo.6cbb026d.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.22a9fbb5.js",
+    "static/js/2.fb9967bd.chunk.js",
+    "static/css/main.0087385e.chunk.css",
+    "static/js/main.d135731a.chunk.js"
+  ]
+}
