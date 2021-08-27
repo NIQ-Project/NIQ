@@ -1,17 +1,17 @@
-# NIQ project 
+# `NIQ project`
 made by Nick W, Quiahn B, Ivan L
 
-`# Git Hub urls`
+## `Git Hub urls`
 - [Front End GitHub Link](https://github.com/NIQ-Project/niq "Front End")
 - [Back End GitHub Link](https://github.com/NIQ-Project/niq-backend "Back End")
 
-# Pitch
+# `Pitch`
 DO YOU WHAT YOU WANT BEFORE ITS TOO LATE!!!
 
-# Project Goals
+# `Project Goals`
 Our goals for this project is to work as an agile team and work together to problem solve code and bugs for our app that helps people keep track of their bucket list.
 
-### MVP User Stories
+### `MVP User Stories`
 
 - As an unregistered user, I would like to sign up with email and password.
 - As a registered user, I would like to sign in with email and password.
@@ -26,10 +26,11 @@ Our goals for this project is to work as an agile team and work together to prob
   other users'.
 - As a signed in user, I would like to cross off items to complete them.
 
-# ERD
+# `ERD`
 A user has a many list and the list has many items.
 ![ERD Image](https://i.imgur.com/VAtPHTv.png)
-# Planning
+
+# `Planning`
 planning for project
 download api temp
 set up template 
@@ -45,7 +46,7 @@ Read all of their owned resources (curl then web app)
 Update single resource (curl then web app)
 Delete single resource (curl then web app)
 
-# final touches
+# `Final Touches`
 styling 
 trouble shooting 
 more styling
