@@ -52,10 +52,10 @@ render () {
   return (
     <div className='row'>
       <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-        <h3>Change Password</h3>
+        <h3 className='text-white'>Change Password</h3>
         <Form onSubmit={this.onChangePassword}>
           <Form.Group controlId='oldPassword'>
-            <Form.Label>Old password</Form.Label>
+            <Form.Label className='text-white'>Old password</Form.Label>
             <Form.Control
               required
               name='oldPassword'
@@ -66,7 +66,7 @@ render () {
             />
           </Form.Group>
           <Form.Group controlId='newPassword'>
-            <Form.Label>New Password</Form.Label>
+            <Form.Label className='text-white'>New Password</Form.Label>
             <Form.Control
               required
               name='newPassword'
@@ -76,7 +76,10 @@ render () {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Button variant='primary' type='submit'>Submit</Button>
+          <Button variant='outline-dark' className='grad' type='submit' style={{
+            width: '100%',
+            marginTop: '25px'
+          }} >Submit</Button>
         </Form>
       </div>
     </div>

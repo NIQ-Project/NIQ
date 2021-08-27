@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-
+import colors from '../../index.scss'
 import { signIn } from '../../api/auth'
 import { signInSuccess, signInFailure } from '../AutoDismissAlert/messages'
 
@@ -53,10 +54,10 @@ render () {
   return (
     <div className='row'>
       <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-        <h3>Sign In</h3>
+        <h3 className='text-white' style={{ }}>Sign In </h3>
         <Form onSubmit={this.onSignIn}>
           <Form.Group controlId='email'>
-            <Form.Label>Email address</Form.Label>
+            <Form.Label className='text-white'>Email address</Form.Label>
             <Form.Control
               required
               type='email'
@@ -67,7 +68,7 @@ render () {
             />
           </Form.Group>
           <Form.Group controlId='password'>
-            <Form.Label>Password</Form.Label>
+            <Form.Label className='text-white'>Password</Form.Label>
             <Form.Control
               required
               name='password'
@@ -77,7 +78,10 @@ render () {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Button variant='primary' type='submit'>Submit</Button>
+          <Button variant='outline-dark' className='grad' type='submit' style={{
+            width: '100%',
+            marginTop: '25px'
+          }} >Submit</Button>
         </Form>
       </div>
     </div>

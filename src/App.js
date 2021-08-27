@@ -10,6 +10,13 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+import CreateList from './components/list/CreateList'
+import IndexList from './components/list/IndexList'
+import ShowList from './components/list/ShowList'
+import UpdateList from './components/list/UpdateList'
+import CreateTask from './components/task/CreateTask'
+import UpdateTask from './components/task/UpdateTask'
+import Home from './components/Home/Home'
 
 class App extends Component {
   constructor (props) {
@@ -44,8 +51,8 @@ class App extends Component {
 
     return (
       <Fragment>
-	      <Header user={user} />
-	      {msgAlerts.map((msgAlert) => (
+        <Header user={user} />
+        {msgAlerts.map((msgAlert) => (
           <AutoDismissAlert
             key={msgAlert.id}
             heading={msgAlert.heading}
@@ -55,8 +62,8 @@ class App extends Component {
             deleteAlert={this.deleteAlert}
           />
         ))}
-	      <main className='container'>
-	        <Route
+        <main className='container'>
+          <Route
             path='/sign-up'
             render={() => (
               <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
@@ -66,6 +73,13 @@ class App extends Component {
             path='/sign-in'
             render={() => (
               <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
+            )}
+          />
+          <Route
+            path='/'
+            exact
+            render={() => (
+              <Home msgAlert={this.msgAlert} setUser={this.setUser} />
             )}
           />
           <AuthenticatedRoute
@@ -85,6 +99,39 @@ class App extends Component {
             render={() => (
               <ChangePassword msgAlert={this.msgAlert} user={user} />
             )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/create-list'
+            render={() => <CreateList msgAlert={this.msgAlert} user={user} />}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/lists/:id/update-list'
+            render={() => <UpdateList msgAlert={this.msgAlert} user={user} />}
+          />
+          <AuthenticatedRoute
+            user={user}
+            exact
+            path='/lists'
+            render={() => <IndexList msgAlert={this.msgAlert} user={user} />}
+          />
+
+          <AuthenticatedRoute
+            user={user}
+            path='/lists/:id'
+            exact
+            render={() => <ShowList msgAlert={this.msgAlert} user={user} />}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/lists/:id/create-task'
+            render={() => <CreateTask msgAlert={this.msgAlert} user={user} />}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/lists/:id/edit-task'
+            render={() => <UpdateTask msgAlert={this.msgAlert} user={user} />}
           />
         </main>
       </Fragment>
