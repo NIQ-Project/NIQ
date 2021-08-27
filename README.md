@@ -1,7 +1,7 @@
 # NIQ project 
 made by Nick W, Quiahn B, Ivan L
 
-` ## Git Hub urls `
+`# Git Hub urls`
 - [Front End GitHub Link](https://github.com/NIQ-Project/niq "Front End")
 - [Back End GitHub Link](https://github.com/NIQ-Project/niq-backend "Back End")
 
