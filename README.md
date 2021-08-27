@@ -1,9 +1,9 @@
 # NIQ project 
 made by Nick W, Quiahn B, Ivan L
 
-## Git Hub url front and backend
-https://github.com/NIQ-Project/niq
-https://github.com/NIQ-Project/niq-backend
+## Git Hub urls
+[Front End GitHub Link](https://github.com/NIQ-Project/niq "Front End")
+[Back End GitHub Link](https://github.com/NIQ-Project/niq-backend "Back End")
 
 # Pitch
 DO YOU WHAT YOU WANT BEFORE ITS TOO LATE!!!
