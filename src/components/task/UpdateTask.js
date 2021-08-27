@@ -19,24 +19,10 @@ class UpdateTask extends Component {
 
   componentDidMount () {
     // one of the automatic router props we get is the match object - that has data about the params in our front-end route url
-    const { match, user, msgAlert, location } = this.props
+    const { match, user, location } = this.props
 
     showTask(match.params.id, user, location.taskId)
       .then((res) => this.setState({ task: res.data.task }))
-      .then(() =>
-        msgAlert({
-          heading: 'Show Task success',
-          message: 'Check out the list',
-          variant: 'success'
-        })
-      )
-      .catch((err) =>
-        msgAlert({
-          heading: 'Show Task failed, try again!',
-          message: 'Something went wrong: ' + err.message,
-          variant: 'danger'
-        })
-      )
   }
 
 handleChange = (event) => {
@@ -74,16 +60,19 @@ render () {
     <div>
       <Form onSubmit={this.handleSubmit}>
         <Form.Group controlId='name'>
-          <Form.Label>New Task Name:</Form.Label>
-          <Form.Control
+          <Form.Label className='text-white'>New Task Name:</Form.Label>
+          <Form.Control className='text-dark'
             required
             name='item'
             value={task.item}
             placeholder='new task name'
             onChange={this.handleChange}
-          />{task.item}
+          />
         </Form.Group>
-        <Button type='submit'>Update Your Task</Button>
+        <Button variant='outline-dark' className='grad' type='submit' style={{
+          width: '100%',
+          marginTop: '25px'
+        }} >Submit</Button>
       </Form>
     </div>
   )

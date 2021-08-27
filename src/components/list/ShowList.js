@@ -63,17 +63,16 @@ class ShowList extends Component {
 
     return (
       <>
-        <div>
-          <h3 className={}>Your Bucket list</h3>
-          <h5>{this.state.list.name}</h5>
-          <p>Month: {this.months[this.state.list.month]}</p>
+        <div className='text-center'>
+          <h3 className='text-white'>{list.name}</h3>
+          <p className='text-white'> Month: {this.months[list.month]}</p>
           {user._id === owner && (
             <>
-              <Button onClick={this.destroy}>Delete This List</Button>
-              <Button onClick={() => history.push(`/lists/${match.params.id}/update-list`)}>
-              Edit
+              <Button onClick={this.destroy} className='text-white' variant='dark'>Delete List</Button>{' '}
+              <Button onClick={() => history.push(`/lists/${match.params.id}/update-list`)} className='text-white' variant='dark'>
+              Edit List
               </Button> {' '}
-              <Button onClick={() => history.push(`/lists/${match.params.id}/create-task`)}>Create Task</Button>
+              <Button onClick={() => history.push(`/lists/${match.params.id}/create-task`)}className='text-white' variant='dark'>Create Task</Button>
               <div style={{
                 display: 'flex',
                 flexWrap: 'wrap'

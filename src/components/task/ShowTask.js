@@ -17,7 +17,6 @@ class ShowTask extends Component {
   componentDidMount () {
     const { task } = this.props
     this.setState({ task: task })
-    console.log(this.state)
   }
 
   complete = () => {
@@ -76,23 +75,25 @@ class ShowTask extends Component {
     const { match, task } = this.props
     return (
       <>
-        <Card key={task._id} style={{
+        <Card key={task._id} className='card-grad m-2 ' style={{
           width: '18rem',
-          height: '14rem'
+          height: '20rem',
+          color: 'white'
         }}>
-          <Card.Header>Your Task:</Card.Header>
-          <Card.Body>
-            <Card.Title>Get This Done:</Card.Title>
-            <Card.Text style={{ overflow: 'auto' }}> {task.item} </Card.Text>
-            <div style={{
+          <Card.Header className='dark-bg text white'>Your Task:</Card.Header>
+          <Card.Body className='dark-bg'>
+            <Card.Title className='text-warning' style={{ overflow: 'auto' }}>{task.item}</Card.Title>
+            <div className='align-items-end' style={{
               position: 'relative',
-              bottom: '5px'
+              top: '7rem'
+              // marginTop: '10px'
             }}>
               <Link to={{ pathname: `/lists/${match.params.id}/edit-task`, taskId: task._id }}>
-                <Button variant="secondary">Edit</Button>
+                <Button variant="dark" style={{ width: '50%' }}>Edit</Button>
               </Link>
-              <Button onClick={() => this.deleteTask(task._id)} variant="danger">Delete</Button>
-              <Button variant="secondary" onClick={this.complete} >{task.done ? 'TRUE' : 'FALSE'}</Button>
+              <Button onClick={() => this.deleteTask(task._id)} variant="dark" style={{ width: '50%' }}>Delete</Button>
+
+              <Button variant="warning" onClick={this.complete} style={{ width: '100%', marginTop: '1rem' }}>{task.done ? 'Completed' : 'Uncompleted'}</Button>
             </div>
           </Card.Body>
         </Card>

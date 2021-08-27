@@ -26,7 +26,6 @@ class CreateTask extends Component {
     event.preventDefault()
 
     const { user, msgAlert, history, match } = this.props
-    console.log(this.state.task)
     createTask(match.params.id, this.state.task, user)
       .then(res => history.push('/lists/' + res.data.list._id))
       .then(() => msgAlert({ heading: 'Task Created!', message: 'Nice work, go check out your task.', variant: 'success' }))
@@ -42,10 +41,10 @@ class CreateTask extends Component {
   render () {
     return (
       <>
-        <h3>Create Task</h3>
+        <h3 className='text-white'>Create Task :</h3>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group controlId='item'>
-            <Form.Label>Task name</Form.Label>
+            <Form.Label className='text-white'>Task name</Form.Label>
             <Form.Control
               required
               name='item'
@@ -54,7 +53,7 @@ class CreateTask extends Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Button type="submit">Submit</Button>
+          <Button type="submit" variant='warning'>Submit</Button>
         </Form>
       </>
     )

@@ -44,7 +44,6 @@ class UpdateList extends Component {
 
   handleChange = (event) => {
     const copiedList = Object.assign(this.state.list)
-    console.log(copiedList)
     if (event.target.name === 'name') {
       // copies list object then alters the value(event target value)
       copiedList[event.target.name] = event.target.value
@@ -54,7 +53,6 @@ class UpdateList extends Component {
       this.setState({ dropdownMonth: this.months[event.target.name] })
     }
     this.setState({ list: copiedList })
-    console.log(this.state.list)
   }
 
  handleSubmit = (event) => {
@@ -93,17 +91,17 @@ class UpdateList extends Component {
      <div>
        <Form onSubmit={this.handleSubmit}>
          <Form.Group controlId='name'>
-           <Form.Label>List name</Form.Label>
+           <Form.Label className='text-white'>List name</Form.Label>
            <Form.Control
              required
              name='name'
              value={list.name}
-             placeholder='Bucket List Name'
+             placeholder='List Name'
              onChange={this.handleChange}
            />
 
            <Dropdown>
-             <Dropdown.Toggle variant="danger" id="dropdown-basic">
+             <Dropdown.Toggle variant="warning" id="dropdown-basic">
                {dropdownMonth}
              </Dropdown.Toggle>
 
@@ -112,7 +110,7 @@ class UpdateList extends Component {
              </Dropdown.Menu>
            </Dropdown>
          </Form.Group>
-         <Button type="submit">Update Bucket List</Button>
+         <Button type="submit" className='text-white' variant='dark'>Update List</Button>
        </Form>
      </div>
    )

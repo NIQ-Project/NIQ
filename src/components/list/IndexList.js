@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { indexList } from '../../api/list'
 import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
+import logo from '../pictures/NavBarLogo.png'
 
 class IndexList extends Component {
   constructor (props) {
@@ -12,6 +13,8 @@ class IndexList extends Component {
       loading: false
     }
   }
+
+  months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
   // - lifecycle method (right away when this component renders, make a request for all the list & put em in state)
   componentDidMount = () => {
@@ -32,24 +35,25 @@ class IndexList extends Component {
 
     let listJsx
     if (list.length === 0) {
-      listJsx = 'No list, go create some'
+      listJsx = <h3>No list, go create some</h3>
     } else {
       // filter through list and return lists where owner matches user id
       const filteredList = list.filter(list => user._id === list.owner)
       listJsx = filteredList.map(list => (
-        <li key={list._id}>
+        <h3 key={list._id}>
           <Link to={`/lists/${list._id}`}>{list.name}</Link>
-        </li>
+          <p style={{ fontSize: '15px', color: 'DarkGray' }}>- {this.months[list.month]}</p>
+        </h3>
       ))
     }
 
     return (
-      <div>
-        <h3> Your List:</h3>
-        <Link to={'/create-list'}>
-          <Button>Create A List</Button>
+      <div className='text-center'>
+        <img src={logo} /> <br />
+        <Link className='link-warning' variant='outline-dark' to={'/create-list'}>
+          <Button className='grad' variant='outline-dark' style={{ margin: '20px 0' }}>Create List</Button>
+          {listJsx}
         </Link>
-        <ul>{listJsx}</ul>
       </div>
     )
   }

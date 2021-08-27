@@ -1,1 +1,63 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap');
+
+$grad: linear-gradient(105deg, rgba(175,63,245,1) 0%, rgba(164,239,110,1) 0%, rgba(228,253,49,1) 0%, rgba(231,104,213,1) 52%, rgba(68,248,188,1) 100%, rgba(175,63,245,1) 0%, rgba(164,239,110,1) 0%, rgba(228,253,49,1) 0%, rgba(231,104,213,1) 52%, rgba(68,248,188,1) 100%, rgba(175,63,245,1) 0%, rgba(164,239,110,1) 0%, rgba(228,253,49,1) 0%, rgba(231,104,213,1) 52%, rgba(68,248,188,1) 100%, rgba(175,63,245,1) 0%, rgba(164,239,110,1) 0%, rgba(228,253,49,1) 0%, rgba(231,104,213,1) 52%, rgba(68,248,188,1));
+
+
+.grad {
+    background: $grad;
+}
+
+html {
+    background-color: #111111;
+}
+
+#root{
+    background-color: #111111;
+}
+
+* {
+   font-family: 'Cabin', sans-serif;
+}
+
+.card-grad {
+    background-image: $grad;
+    padding: 3px;
+}
+
+.dark-bg {
+    background-color:  #111111;
+}
+
+a   {
+    color: #af3ff5;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #7c2dad;
+}
+
+#big-m {
+    animation-timing-function: ease-in-out;
+}
+
+.bob-down {
+    text-align: center;
+    position: relative;
+    top: 2px;
+    right: 0px;
+    -webkit-animation: mover 5s  alternate infinite;
+    animation: mover 5s alternate infinite;
+    
+  }
+
+  @-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(2rem); }
+  }
+
+  @keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(2rem); }
+  }

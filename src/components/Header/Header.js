@@ -2,36 +2,37 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link, NavLink } from 'react-router-dom'
+import logo from '../pictures/NavBarLogo.png'
 
 const authenticatedOptions = (
   <Fragment>
-    <NavLink to='/lists' className='nav-link'>View Lists</NavLink>
-    <NavLink to='/change-password' className='nav-link'>Change Password</NavLink>
-    <NavLink to='/sign-out' className='nav-link'>Sign Out</NavLink>
+    <NavLink to='/lists' className='nav-link px-5'>View Lists</NavLink>
+    <NavLink to='/change-password' className='nav-link px-5'>Change Password</NavLink>
+    <NavLink to='/sign-out' className='nav-link px-5'>Sign Out</NavLink>
   </Fragment>
 )
 
 const unauthenticatedOptions = (
   <Fragment>
-    <NavLink to='/sign-up' className='nav-link'>Sign Up</NavLink>
-    <NavLink to='/sign-in' className='nav-link'>Sign In</NavLink>
+    <NavLink to='/sign-up' className='nav-link px-5'>Sign Up</NavLink>
+    <NavLink to='/sign-in' className='nav-link px-5'>Sign In</NavLink>
   </Fragment>
 )
 
 const alwaysOptions = (
   <Fragment>
-    <NavLink exact to='/' className='nav-link'>Home</NavLink>
+    <NavLink exact to='/' className='nav-link px-5'>Home</NavLink>
   </Fragment>
 )
 
 const Header = ({ user }) => (
-  <Navbar bg='danger' variant='dark' expand='md'>
+  <Navbar style={{ backdropFilter: 'blur(6px)' }} className='fixed-bottom' variant='dark' expand='md'>
     <Navbar.Brand>
-      <Link to='/' style={{ color: '#000000', textDecoration: 'underline-dotted', fontFamily: 'Times New Roman", Times, serif' }}>M O N T H L Y</Link>
+      <Link to='/'><img style={{ height: '5vh', marginLeft: '5px' }} src={logo}/></Link>
     </Navbar.Brand>
-    <Navbar.Toggle aria-controls='basic-navbar-nav' />
-    <Navbar.Collapse id='basic-navbar-nav'>
-      <Nav className='ml-auto'>
+    <Navbar.Toggle aria-controls='basic-navbar-nav' className='nav-icon' />
+    <Navbar.Collapse id='basic-navbar-nav' className='text-center'>
+      <Nav>
         {user && (
           <span className='navbar-text mr-2'>Welcome, {user.email}</span>
         )}
