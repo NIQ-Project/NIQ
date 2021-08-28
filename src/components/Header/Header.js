@@ -31,7 +31,7 @@ const Header = ({ user }) => (
       <Link to='/'><img style={{ height: '5vh', marginLeft: '5px' }} src={logo}/></Link>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls='basic-navbar-nav' className='nav-icon' />
-    <Navbar.Collapse id='basic-navbar-nav' className='text-center'>
+    <Navbar.Collapse id='basic-navbar-nav' className='text-center d-flex justify-content-md-end justify-content-center'>
       <Nav>
         {user && (
           <span className='navbar-text mr-2'>Welcome, {user.email}</span>
