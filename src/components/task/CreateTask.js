@@ -28,7 +28,7 @@ class CreateTask extends Component {
     const { user, msgAlert, history, match } = this.props
     createTask(match.params.id, this.state.task, user)
       .then(res => history.push('/lists/' + res.data.list._id))
-      .then(() => msgAlert({ heading: 'Task Created!', message: 'Nice work, go check out your task.', variant: 'success' }))
+      .then(() => msgAlert({ heading: 'Task Created Successfully', message: 'Nice work, go check out your task.', variant: 'success' }))
       .catch(err => {
         msgAlert({
           heading: 'Task creation failed :(',
@@ -41,8 +41,8 @@ class CreateTask extends Component {
   render () {
     return (
       <>
-        <h3 className='text-white'>Create Task :</h3>
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit} className='text-center' >
+          <h3 className='text-white'>Create Task</h3>
           <Form.Group controlId='item'>
             <Form.Label className='text-white'>Task name</Form.Label>
             <Form.Control
@@ -52,8 +52,8 @@ class CreateTask extends Component {
               placeholder='Task Name'
               onChange={this.handleChange}
             />
+            <Button type="submit" variant='outline-dark' className='grad my-3' style={{ width: '100%' }} >Submit</Button>
           </Form.Group>
-          <Button type="submit" variant='warning'>Submit</Button>
         </Form>
       </>
     )

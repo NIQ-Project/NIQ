@@ -36,7 +36,7 @@ class ShowList extends Component {
       .then(() => history.push('/lists'))
       .then(() =>
         msgAlert({
-          heading: 'Successfully Deleted',
+          heading: 'List Deleted Successfully',
           message: 'Your list no longer exists',
           variant: 'success'
         })
@@ -73,10 +73,7 @@ class ShowList extends Component {
               Edit List
               </Button> {' '}
               <Button onClick={() => history.push(`/lists/${match.params.id}/create-task`)}className='text-white' variant='dark'>Create Task</Button>
-              <div style={{
-                display: 'flex',
-                flexWrap: 'wrap'
-              }}>
+              <div className='d-flex flex-wrap justify-content-lg-start justify-content-center'>
                 {showTasks}
               </div>
             </>

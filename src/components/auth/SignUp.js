@@ -33,7 +33,7 @@ onSignUp = (event) => {
     .then((res) => setUser(res.data.user))
     .then(() =>
       msgAlert({
-        heading: 'Sign Up Success',
+        heading: 'Signed Up Successfully',
         message: signUpSuccess,
         variant: 'success'
       })

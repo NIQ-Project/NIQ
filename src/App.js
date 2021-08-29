@@ -17,6 +17,7 @@ import UpdateList from './components/list/UpdateList'
 import CreateTask from './components/task/CreateTask'
 import UpdateTask from './components/task/UpdateTask'
 import Home from './components/Home/Home'
+import { signIn } from './api/auth'
 
 class App extends Component {
   constructor (props) {
@@ -35,6 +36,13 @@ class App extends Component {
     this.setState((state) => {
       return { msgAlerts: state.msgAlerts.filter((msg) => msg.id !== id) }
     })
+  }
+
+  componentDidMount = () => {
+    if (localStorage.user !== undefined) {
+      signIn(JSON.parse(localStorage.user))
+        .then((res) => this.setUser(res.data.user))
+    }
   }
 
   msgAlert = ({ heading, message, variant }) => {

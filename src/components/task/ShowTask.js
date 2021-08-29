@@ -31,7 +31,7 @@ class ShowTask extends Component {
       .then(() => history.push(match.url))
       .then(() =>
         msgAlert({
-          heading: 'Task has been Updated!',
+          heading: 'Task Updated Successfully',
           message: 'Nice work, go check out your list.',
           variant: 'success'
         })
@@ -53,7 +53,7 @@ class ShowTask extends Component {
       .then(() => history.push(match.url))
       .then(() =>
         msgAlert({
-          heading: 'Successfully Deleted Task',
+          heading: 'Task Deleted Successfully',
           message: 'Your task no longer exists',
           variant: 'success'
         })

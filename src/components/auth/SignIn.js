@@ -32,12 +32,13 @@ onSignIn = (event) => {
     .then((res) => setUser(res.data.user))
     .then(() =>
       msgAlert({
-        heading: 'Sign In Success',
+        heading: 'Signed In Successfully',
         message: signInSuccess,
         variant: 'success'
       })
     )
     .then(() => history.push('/'))
+    .then(() => { localStorage.setItem('user', JSON.stringify(this.state)) })
     .catch((error) => {
       this.setState({ email: '', password: '' })
       msgAlert({
@@ -54,7 +55,7 @@ render () {
   return (
     <div className='row'>
       <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-        <h3 className='text-white' style={{ }}>Sign In </h3>
+        <h3 className='text-white' >Sign In </h3>
         <Form onSubmit={this.onSignIn}>
           <Form.Group controlId='email'>
             <Form.Label className='text-white'>Email address</Form.Label>
