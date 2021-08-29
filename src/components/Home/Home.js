@@ -4,7 +4,6 @@ import { Row, Col, Card } from 'react-bootstrap'
 import quiahn from '../pictures/quiahn.jpg'
 import nick from '../pictures/nick.png'
 import ivan from '../pictures/ivan.png'
-import Twitter from '../pictures/twitter'
 import GitHub from '../pictures/gitHub'
 import LinkedIn from '../pictures/linkedIn'
 
@@ -44,8 +43,7 @@ export default function Home () {
               </div>
               <div className='socials'>
                 <a className="icon-hover mx-2" href="https://www.linkedin.com/in/quiahn-ballou/"><LinkedIn></LinkedIn></a>
-                <a className="icon-hover mx-2" href="https://github.com/Quiahn"><GitHub style={{ color: 'red' }}></GitHub></a>
-                <a className="icon-hover mx-2" href="https://twitter.com/CodingWithQui"><Twitter></Twitter></a>
+                <a className="icon-hover mx-2" href="https://github.com/Quiahn"><GitHub></GitHub></a>
               </div>
             </Card>
           </Col>
@@ -55,14 +53,13 @@ export default function Home () {
               <div className='img2'> <img src={nick} alt='Nick Wilkerson' /> </div>
               <div className='main-text'>
                 <h2>Nick Wilkerson</h2>
-                <p>Cohoes, NY</p>
+                <p>Golden, Colorado</p>
                 <p>Fullstack Web Developer</p>
                 <hr />
               </div>
               <div className='socials'>
                 <a className="icon-hover mx-2" href="https://www.linkedin.com/in/nickwilkerson/"><LinkedIn></LinkedIn></a>
-                <a className="icon-hover mx-2" href="https://github.com/nickwilkerson"><GitHub style={{ color: 'red' }}></GitHub></a>
-                <a className="icon-hover mx-2" href="https://twitter.com/"><Twitter></Twitter></a>
+                <a className="icon-hover mx-2" href="https://github.com/nickwilkerson"><GitHub></GitHub></a>
               </div>
             </Card>
           </Col>
@@ -72,14 +69,13 @@ export default function Home () {
               <div className='img2'> <img src={ivan} alt='Ivan Ly' /> </div>
               <div className='main-text'>
                 <h2>Ivan Ly</h2>
-                <p>Cohoes, NY</p>
+                <p>College Station, Texas</p>
                 <p>Fullstack Web Developer</p>
                 <hr />
               </div>
               <div className='socials'>
                 <a className="icon-hover mx-2" href="https://www.linkedin.com/in/ivan-ly/"><LinkedIn></LinkedIn></a>
-                <a className="icon-hover mx-2" href="https://github.com/Ivanly25"><GitHub style={{ color: 'red' }}></GitHub></a>
-                <a className="icon-hover mx-2" href="https://twitter.com/CodingWithQui"><Twitter></Twitter></a>
+                <a className="icon-hover mx-2" href="https://github.com/Ivanly25"><GitHub></GitHub></a>
               </div>
             </Card>
           </Col>
