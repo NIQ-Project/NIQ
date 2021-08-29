@@ -30,7 +30,7 @@ onChangePassword = (event) => {
   changePassword(this.state, user)
     .then(() =>
       msgAlert({
-        heading: 'Change Password Success',
+        heading: 'Changed Password Successfully',
         message: changePasswordSuccess,
         variant: 'success'
       })

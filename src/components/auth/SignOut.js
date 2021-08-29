@@ -9,6 +9,7 @@ class SignOut extends Component {
     const { msgAlert, history, clearUser, user } = this.props
 
     signOut(user)
+      .finally(() => localStorage.clear())
       .finally(() =>
         msgAlert({
           heading: 'Signed Out Successfully',

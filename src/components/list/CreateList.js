@@ -40,7 +40,7 @@ class CreateList extends Component {
     createList(this.state.list, user)
       .then(res => history.push('/lists/' + res.data.list._id))
       .then(() => msgAlert({
-        heading: 'List created',
+        heading: 'List created Successfully',
         message: 'nice work go check out your list',
         variant: 'success'
       }))
@@ -64,9 +64,10 @@ class CreateList extends Component {
 
     return (
       <div>
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit} className='text-center'>
+          <h3 className='text-white'>Create List</h3>
           <Form.Group controlId='name'>
-            <Form.Label className='text-white'>List name:</Form.Label>
+            <Form.Label className='text-white'>List name</Form.Label>
             <Form.Control
               required
               name='name'
@@ -75,18 +76,19 @@ class CreateList extends Component {
               onChange={this.handleChange}
             />
 
-            <Dropdown>
-              <Dropdown.Toggle variant="warning" id="dropdown-basic">
-                {dropdownMonth}
-              </Dropdown.Toggle>
+            <div>
+              <Dropdown className='p-4' >
+                <Dropdown.Toggle variant="warning" id="dropdown-basic" >
+                  {dropdownMonth}
+                </Dropdown.Toggle>
 
-              <Dropdown.Menu>
-                {dropdownJSX}
-              </Dropdown.Menu>
-            </Dropdown>
-
+                <Dropdown.Menu>
+                  {dropdownJSX}
+                </Dropdown.Menu>
+              </Dropdown>
+              <Button type="submit" className='grad' variant='outline-dark' >Submit</Button>
+            </div>
           </Form.Group>
-          <Button type="submit" variant='dark'>Submit</Button>
         </Form>
       </div>
     )

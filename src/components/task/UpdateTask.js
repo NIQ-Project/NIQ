@@ -40,7 +40,7 @@ handleSubmit = (event) => {
     .then((res) => history.push('/lists/' + match.params.id))
     .then(() =>
       msgAlert({
-        heading: 'Task Updated!',
+        heading: 'Task Updated Successfully',
         message: 'Nice work, go check out your updated task.',
         variant: 'success'
       })
@@ -58,9 +58,10 @@ render () {
   const { task } = this.state
   return (
     <div>
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit} className='text-center' >
         <Form.Group controlId='name'>
-          <Form.Label className='text-white'>New Task Name:</Form.Label>
+          <h3 className='text-white'>Create Task</h3>
+          <Form.Label className='text-white'>New Task Name</Form.Label>
           <Form.Control className='text-dark'
             required
             name='item'

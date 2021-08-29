@@ -26,13 +26,6 @@ class UpdateList extends Component {
 
     showList(match.params.id, user)
       .then((res) => this.setState({ list: res.data.list }))
-      .then(() =>
-        msgAlert({
-          heading: 'Show list success',
-          message: 'Check out the list',
-          variant: 'success'
-        })
-      )
       .catch((err) =>
         msgAlert({
           heading: 'Show list failed, try again!',
@@ -55,66 +48,63 @@ class UpdateList extends Component {
     this.setState({ list: copiedList })
   }
 
- handleSubmit = (event) => {
-   event.preventDefault()
+  handleSubmit = (event) => {
+    event.preventDefault()
 
-   const { user, msgAlert, history, match } = this.props
+    const { user, msgAlert, history, match } = this.props
 
-   updateList(this.state.list, match.params.id, user)
-     .then((res) => history.push('/lists/' + match.params.id))
-     .then(() =>
-       msgAlert({
-         heading: 'List Updated!',
-         message: 'Nice work, go check out your list.',
-         variant: 'success'
-       })
-     )
-     .catch((err) => {
-       msgAlert({
-         heading: 'List update failed :(',
-         message: 'Something went wrong: ' + err.message,
-         variant: 'danger'
-       })
-     })
- }
+    updateList(this.state.list, match.params.id, user)
+      .then((res) => history.push('/lists/' + match.params.id))
+      .catch((err) => {
+        msgAlert({
+          heading: 'List update failed :(',
+          message: 'Something went wrong: ' + err.message,
+          variant: 'danger'
+        })
+      })
+  }
 
- render () {
-   const { list, dropdownMonth } = this.state
+  render () {
+    const { list, dropdownMonth } = this.state
 
-   const date = new Date()
-   const filteredMonths = this.months.filter((month, i) => i >= date.getMonth())
-   const dropdownJSX = filteredMonths.map(month => (
-     <Dropdown.Item key={month} onClick={this.handleChange} name={this.months.indexOf(month)}>{month}</Dropdown.Item>
-   ))
+    const date = new Date()
+    const filteredMonths = this.months.filter((month, i) => i >= date.getMonth())
+    const dropdownJSX = filteredMonths.map(month => (
+      <Dropdown.Item key={month} onClick={this.handleChange} name={this.months.indexOf(month)}>{month}</Dropdown.Item>
+    ))
 
-   return (
-     <div>
-       <Form onSubmit={this.handleSubmit}>
-         <Form.Group controlId='name'>
-           <Form.Label className='text-white'>List name</Form.Label>
-           <Form.Control
-             required
-             name='name'
-             value={list.name}
-             placeholder='List Name'
-             onChange={this.handleChange}
-           />
+    return (
+      <div>
+        <Form onSubmit={this.handleSubmit} className='text-center' >
+          <Form.Group controlId='name'>
+            <h3 className='text-white'>Edit List</h3>
+            <Form.Label className='text-white'>List name</Form.Label>
+            <Form.Control
+              required
+              name='name'
+              value={list.name}
+              placeholder='List Name'
+              onChange={this.handleChange}
+              style={{ width: '96.5%' }}
+              className='mx-auto'
+            />
+            <div>
+              <Dropdown className='p-4' >
+                <Dropdown.Toggle variant="warning" id="dropdown-basic" >
+                  {dropdownMonth}
+                </Dropdown.Toggle>
 
-           <Dropdown>
-             <Dropdown.Toggle variant="warning" id="dropdown-basic">
-               {dropdownMonth}
-             </Dropdown.Toggle>
-
-             <Dropdown.Menu>
-               {dropdownJSX}
-             </Dropdown.Menu>
-           </Dropdown>
-         </Form.Group>
-         <Button type="submit" className='text-white' variant='dark'>Update List</Button>
-       </Form>
-     </div>
-   )
- }
+                <Dropdown.Menu>
+                  {dropdownJSX}
+                </Dropdown.Menu>
+              </Dropdown>
+              <Button type="submit" className='grad' variant='outline-dark' >Update List</Button>
+            </div>
+          </Form.Group>
+        </Form>
+      </div>
+    )
+  }
 }
 
 export default withRouter(UpdateList)
