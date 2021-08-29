@@ -4,6 +4,8 @@ made by Nick W, Quiahn B, Ivan L
 ## Git Hub urls
 [Front End GitHub Link](https://github.com/NIQ-Project/niq "Front End")
 [Back End GitHub Link](https://github.com/NIQ-Project/niq-backend "Back End")
+[deployed site](https://niq-project.github.io/niq/)
+[back-end](https://git.heroku.com/monthly-backend.git)
 
 # Pitch
 DO YOU WHAT YOU WANT BEFORE ITS TOO LATE!!!
