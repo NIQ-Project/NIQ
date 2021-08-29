@@ -8,6 +8,8 @@ made by Nick W, Quiahn B, Ivan L
 # Pitch
 DO YOU WHAT YOU WANT BEFORE ITS TOO LATE!!!
 
+Get started using monthly! First, create an account to help you keep track of your monthly goals and lists. Next, select “View Lists” and from there you will be able to view, create, or edit your list for the desired month. Additionally, on this screen you will be able to add tasks or goals to any of the lists created. Help yourself get back on track and have fun doing it with Monthly!
+
 # Project Goals
 Our goals for this project is to work as an agile team and work together to problem solve code and bugs for our app that helps people keep track of their bucket list.
 
@@ -49,3 +51,11 @@ Delete single resource (curl then web app)
 styling 
 trouble shooting 
 more styling
+ 
+# technology used
+mongo
+mongoose
+bootstrap
+react 
+jsx 
+scss 
