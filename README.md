@@ -1,21 +1,21 @@
-# NIQ project 
+![LOGO](./src/components/pictures/NavBarLogo.png)
 made by Nick W, Quiahn B, Ivan L
 
-## Git Hub urls
-[Front End GitHub Link](https://github.com/NIQ-Project/niq "Front End")
-[Back End GitHub Link](https://github.com/NIQ-Project/niq-backend "Back End")
-[deployed site](https://niq-project.github.io/niq/)
-[back-end](https://git.heroku.com/monthly-backend.git)
+# `Urls`
+- [Back End GitHub Link](https://github.com/NIQ-Project/niq-backend "Monthly's Back-End Repository")
+- [Deployed Site](https://niq-project.github.io/niq/ "Monthly Website")
+- [Back-End](https://git.heroku.com/monthly-backend.git "Monthly's Back-End Website")
 
-# Pitch
-DO YOU WHAT YOU WANT BEFORE ITS TOO LATE!!!
+# `Pitch`
+Got a bucket list of things to do before the end of the month? Use Monthly! Monthly is a service that helps you track all of your monthly goals and tasks by oraganizing every month into a list.
 
-Get started using monthly! First, create an account to help you keep track of your monthly goals and lists. Next, select “View Lists” and from there you will be able to view, create, or edit your list for the desired month. Additionally, on this screen you will be able to add tasks or goals to any of the lists created. Help yourself get back on track and have fun doing it with Monthly!
+# `How It Works`
+Users get started by creating an account then logging in. From there they are able to create lists and assign them a month, then create tasks within their lists.
 
-# Project Goals
-Our goals for this project is to work as an agile team and work together to problem solve code and bugs for our app that helps people keep track of their bucket list.
+# `Project Goals`
+Our goals for this project is to work as an agile team and work together to problem solve, code, and squash bugs for our app that helps people keep track of their bucket list.
 
-### MVP User Stories
+### `MVP User Stories`
 
 - As an unregistered user, I would like to sign up with email and password.
 - As a registered user, I would like to sign in with email and password.
@@ -30,34 +30,48 @@ Our goals for this project is to work as an agile team and work together to prob
   other users'.
 - As a signed in user, I would like to cross off items to complete them.
 
-# ERD
-A user has a many list and the list has many items.
-![ERD Image](https://i.imgur.com/VAtPHTv.png)
-# Planning
-planning for project
-download api temp
-set up template 
-download front end 
-set up template 
-set us post man back end 
-finish backend 
-start front end 
-Create your resource and end points
-CRUD
-Create resource (curl then web app)
-Read all of their owned resources (curl then web app)
-Update single resource (curl then web app)
-Delete single resource (curl then web app)
+# `Planning Time Table`
 
-# final touches
-styling 
-trouble shooting 
-more styling
- 
-# technology used
-mongo
-mongoose
-bootstrap
-react 
-jsx 
-scss 
+### Day 1:
+- Plan for project
+- Download api template
+- Set up api template 
+- Download front-end template
+- Set up front-end template
+
+### Day2:
+- Start back-end routes and test with postman
+- Start front-end
+
+### Day3:
+- Keep working on front-end and back-end
+- plan for styling
+
+### Day 4:
+- Finish front-end
+- Finish back-end
+- Start styling
+
+### Day 5-7
+- Complete Styling
+
+# `Technology Used`
+
+### React
+### Axios
+### Bootstrap
+### SASS
+### Express
+### Mongoose
+### Mongo
+### Passport
+### JWT
+### BCrpyt
+
+
+# `Unsolved Problems`
+
+- Signing up automatically signs user in but doesn't save the log in
+- Remember me feature needs to be reworked
+- Website's styling isn't complete
+- User can edit list after the month it's created
