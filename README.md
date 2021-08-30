@@ -1,21 +1,21 @@
-![LOGO](./src/components/pictures/NavBarLogo.png)
+![LOGO](./src/components/pictures/NavBarLogo.png) <br />
 made by Nick W, Quiahn B, Ivan L
 
-# `Urls`
+## `Urls`
 - [Back End GitHub Link](https://github.com/NIQ-Project/niq-backend "Monthly's Back-End Repository")
 - [Deployed Site](https://niq-project.github.io/niq/ "Monthly Website")
 - [Back-End](https://git.heroku.com/monthly-backend.git "Monthly's Back-End Website")
 
-# `Pitch`
+## `Pitch`
 Got a bucket list of things to do before the end of the month? Use Monthly! Monthly is a service that helps you track all of your monthly goals and tasks by oraganizing every month into a list.
 
-# `How It Works`
+## `How It Works`
 Users get started by creating an account then logging in. From there they are able to create lists and assign them a month, then create tasks within their lists.
 
-# `Project Goals`
+## `Project Goals`
 Our goals for this project is to work as an agile team and work together to problem solve, code, and squash bugs for our app that helps people keep track of their bucket list.
 
-### `MVP User Stories`
+## `MVP User Stories`
 
 - As an unregistered user, I would like to sign up with email and password.
 - As a registered user, I would like to sign in with email and password.
@@ -30,7 +30,11 @@ Our goals for this project is to work as an agile team and work together to prob
   other users'.
 - As a signed in user, I would like to cross off items to complete them.
 
-# `Planning Time Table`
+## `WireFrames`
+![Wireframe 1](https://i.imgur.com/GsURsTa.png)
+![Wireframe 2](https://i.imgur.com/olSlSaS.png)
+
+## `Planning Time Table`
 
 ### Day 1:
 - Plan for project
@@ -55,7 +59,7 @@ Our goals for this project is to work as an agile team and work together to prob
 ### Day 5-7
 - Complete Styling
 
-# `Technology Used`
+## `Technology Used`
 
 ### React
 ### Axios
@@ -69,7 +73,7 @@ Our goals for this project is to work as an agile team and work together to prob
 ### BCrpyt
 
 
-# `Unsolved Problems`
+## `Unsolved Problems`
 
 - Signing up automatically signs user in but doesn't save the log in
 - Remember me feature needs to be reworked
